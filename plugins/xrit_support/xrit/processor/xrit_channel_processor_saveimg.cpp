@@ -478,8 +478,7 @@ namespace satdump
                 // TODOREWORK Check settings!
                 if (satdump_cfg.shouldAutoprocessProducts())
                 {
-                    process_composites(pro, directory_path);
-                    pro->save(directory_path);
+                    pending_composites.push_back({pro, directory_path});
                 }
             }
 

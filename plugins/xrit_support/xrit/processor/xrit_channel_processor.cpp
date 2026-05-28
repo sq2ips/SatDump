@@ -117,6 +117,14 @@ namespace satdump
                 }
             }
             ui_img_mtx.unlock();
+
+            // Process deferred composites now that all channels should be on disk
+            for (auto &[pro, pro_path] : pending_composites)
+            {
+                process_composites(pro, pro_path);
+                pro->save(pro_path);
+            }
+            pending_composites.clear();
         }
 
         XRITChannelProcessor::~XRITChannelProcessor()

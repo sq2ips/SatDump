@@ -74,6 +74,8 @@ namespace satdump
             // TODOREWORK DOCUMENT
             void process_composites(std::shared_ptr<products::ImageProduct> pro, std::string pro_path);
 
+            std::vector<std::pair<std::shared_ptr<products::ImageProduct>, std::string>> pending_composites;
+
         public:
             enum xrit_image_status
             {
